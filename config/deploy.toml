@@ -1,0 +1,44 @@
+# Tontine Contract Deployment Configuration
+
+[network]
+chain_id = "safro-testnet-1"
+node = "https://rpc.testnet.safrochain.com"
+gas_prices = "0.025usaf"
+gas = "auto"
+gas_adjustment = "1.3"
+keyring_backend = "file"
+
+[contract]
+label = "tontine-contract"
+wasm_file = "target/wasm32-unknown-unknown/release/tontine_contract.wasm"
+
+[instantiation]
+admin = "addr_safro18cmxlyj8yllr702kzujhkuwth3rektfpcw8f7p"
+token_denom = "usaf"
+contribution_amount = "1000000"  # 1 USAF in micro units
+round_frequency = 604800  # 7 days in seconds
+late_penalty = "50000"    # 0.05 USAF in micro units
+protocol_fees = "10000"   # 0.01 USAF in micro units
+arbitrator = "addr_safro18cmxlyj8yllr702kzujhkuwth3rektfpcw8f7p"
+
+[beneficiaries]
+# Add your beneficiary addresses here
+addresses = [
+    "addr_safro128t7dz2qwefww6zkkauktdyhhvgeatr3tf9rnw",
+    "addr_safro1sgay9dmp72l8ezgeepp2rfzqsqxgxr85h46vtm",
+    "addr_safro18cmxlyj8yllr702kzujhkuwth3rektfpcw8f7p"
+]
+
+[time_guards]
+registration_deadline = 86400    # 1 day in seconds
+contribution_deadline = 3600     # 1 hour in seconds
+distribution_delay = 1800        # 30 minutes in seconds
+
+[accounts]
+# Update these with your actual account names
+admin_account = "mycontractadmin"
+member_accounts = [
+    "member1",
+    "member2",
+    "member3"
+]
